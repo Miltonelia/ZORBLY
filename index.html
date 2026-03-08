@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZORBLY – $ZORBLY</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #0a001f, #000);
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 0.5rem;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00f0ff;
+    }
+
+    .hero {
+      padding-top: 80px;
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, rgba(10, 0, 31, 0.9), rgba(0, 0, 0, 0.8));
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 60%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://i.imgur.com/0h3X1QE.gif') no-repeat center center;
+      background-size: cover;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #00f0ff;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero .buttons a {
+      display: inline-block;
+      margin: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #ff00cc;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-weight: bold;
+    }
+
+    .hero .buttons a:hover {
+      background: #ff33dd;
+      transform: translateY(-2px);
+    }
+
+    .disclaimer {
+      font-size: 0.9rem;
+      color: #ccc;
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    .logo-container {
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.6);
+    }
+
+    .token-ticker {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00f0ff;
+      margin: 0.5rem 0;
+      text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      background: rgba(0, 240, 255, 0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      min-width: 120px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00f0ff;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 0.25rem;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section h2 {
+      color: #00f0ff;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    section p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      background: rgba(0, 240, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+
+    .social-links p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+
+    .social-links a {
+      color: #00f0ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #33f0ff;
+    }
+
+    .meme-info {
+      background: rgba(255, 0, 204, 0.2);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #ff00cc;
+      margin-top: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #111;
+      color: #aaa;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #00f0ff;
+      text-decoration: none;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    footer a:hover {
+      color: #33f0ff;
+    }
+
+    .new-section {
+      background: rgba(0, 240, 255, 0.08);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+    }
+
+    .chart-container {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .wallet-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: #ff00cc;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .trending-memes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .trending-memes img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about-us">About</a></li>
+        <li><a href="#tokenomics">Tokenomics</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#architects">Architects</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="logo-container">
+        <img src="logo.jpg" alt="ZORBLY logo" class="logo">
+      </div>
+      <h1>ZORBLY</h1>
+      <p class="token-ticker">$ZORBLY</p>
+      <p>The First Living Memecoin that Mutates Forever – Community Evolves the Journey to the Moon!</p>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-value">1B</span>
+          <span class="stat-label">Total Supply</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Organic</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">Solana</span>
+          <span class="stat-label">Blockchain</span>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank">Join the Community on Telegram</a>
+        <a href="#tokenomics">View Tokenomics</a>
+        <a href="#" target="_blank">Buy $ZORBLY on Pump.fun (coming soon)</a>
+      </div>
+      <p class="disclaimer">We don't pay for promotions – Your creativity is our engine!</p>
+    </section>
+  </header>
+
+  <!-- === REGISTER AS ARCHITECT === -->
+  <section id="architects" class="new-section">
+    <h2>Become an Architect – Only 1k Spots Left</h2>
+    <p>Register your wallet to secure your place among the 1k Architects and receive exclusive benefits.</p>
+    <a href="https://tally.so/r/68k2zO" target="_blank" style="display:inline-block; padding:1rem 2rem; background:#ff00cc; color:#fff; border-radius:8px; text-decoration:none; font-weight:bold;">
+      SECURE MY ARCHITECT SLOT NOW →
+    </a>
+  </section>
+
+  <!-- === LIVE CHART (placeholder) === -->
+  <section id="chart" class="new-section">
+    <h2>Live Token Chart</h2>
+    <div class="chart-container">
+      <iframe src="https://birdeye.so/" width="100%" height="500" frameborder="0" style="border-radius:12px;"></iframe>
+    </div>
+  </section>
+
+  <!-- === CONNECT WALLET === -->
+  <section class="new-section">
+    <h2>Connect Your Wallet</h2>
+    <div class="wallet-buttons">
+      <a href="https://phantom.app/" target="_blank">Phantom Wallet</a>
+      <a href="https://bitget.com/" target="_blank">Bitget Wallet</a>
+    </div>
+  </section>
+
+  <!-- === TOKENOMICS === -->
+  <section id="tokenomics">
+    <h2>Tokenomics</h2>
+    <div class="token-details">
+      <p><strong>Token Symbol:</strong> $ZORBLY</p>
+      <p><strong>Blockchain:</strong> Solana</p>
+      <p><strong>Total Supply:</strong> 1,000,000,000 $ZORBLY</p>
+      <p><strong>Contract Address:</strong> Coming soon on Pump.fun</p>
+    </div>
+  </section>
+
+  <!-- === ROADMAP === -->
+  <section id="roadmap">
+    <h2>Roadmap</h2>
+    <div class="roadmap-container">
+      <div class="roadmap-phase completed">
+        <div class="phase-number">1</div>
+        <div class="phase-content">
+          <h3>Community Formation</h3>
+          <ul>
+            <li>✅ Website Launch</li>
+            <li>✅ Social Media Setup</li>
+            <li>🔄 Token Contract Deployment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-phase active">
+        <div class="phase-number">2</div>
+        <div class="phase-content">
+          <h3>Pump.fun Launch</h3>
+          <ul>
+            <li>🔄 Squad Coordinated Buy</li>
+            <li>📅 Airdrop to Early Architects</li>
+            <li>📅 First Avatar Mutation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-number">3</div>
+        <div class="phase-content">
+          <h3>Evolution Phase</h3>
+          <ul>
+            <li>📅 Weekly Community Mutations</li>
+            <li>📅 Raydium Migration</li>
+            <li>📅 Extra Airdrops for Shillers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-number">4</div>
+        <div class="phase-content">
+          <h3>Eternal King</h3>
+          <ul>
+            <li>📅 Major Listings</li>
+            <li>📅 Community Governance</li>
+            <li>🚀 Forever Evolving</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="community">
+    <h2>Community</h2>
+    <div class="social-links">
+      <p>📢 <a href="https://x.com/ZORBLY" target="_blank">Follow @ZORBLY on X</a></p>
+      <p>💬 <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank">Join Telegram</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>100% Organic Growth – No paid promotions</p>
+    <a href="#home">Back to Top</a>
+  </footer>
+</body>
+</html>
