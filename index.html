@@ -40,9 +40,8 @@
       scroll-behavior: smooth;
     }
     nav {
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.9);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0, 240, 255, 0.1);
     }
     .logo {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -53,50 +52,40 @@
     }
     .menu-separator {
       height: 1px;
-      background: linear-gradient(to right, transparent, #00f0ff80, #ff00cc80, transparent);
-      opacity: 0.6;
-      margin: 4px 0;
+      background: linear-gradient(to right, transparent, #00f0ff60, #ff00cc60, transparent);
+      opacity: 0.5;
+      margin: 2px 0 4px;
     }
   </style>
 </head>
 <body class="bg-zorb-dark text-white font-sans overflow-x-hidden">
 
-  <!-- Menú superior delgado + línea separadora -->
-  <nav class="fixed top-0 w-full z-50 py-1">
-    <ul class="flex justify-center space-x-4 text-sm">
-      <li><a href="#home" class="hover:text-zorb-teal transition px-2 py-1">Inicio</a></li>
-      <li><a href="#presale" class="hover:text-zorb-teal transition px-2 py-1">Presale</a></li>
-      <li><a href="#tokenomics" class="hover:text-zorb-teal transition px-2 py-1">Tokenomics</a></li>
-      <li><a href="#roadmap" class="hover:text-zorb-teal transition px-2 py-1">Hoja de Ruta</a></li>
-      <li><a href="#chart" class="hover:text-zorb-teal transition px-2 py-1">Gráfico en vivo</a></li>
-      <li><a href="#community" class="hover:text-zorb-teal transition px-2 py-1">Comunidad</a></li>
-      <li><a href="#architects" class="hover:text-zorb-teal transition px-2 py-1">Architects</a></li>
+  <!-- Menú superior – ahora EXTREMADAMENTE delgado -->
+  <nav class="fixed top-0 w-full z-50 py-0.5">  <!-- py-0.5 = solo 2px arriba/abajo -->
+    <ul class="flex justify-center space-x-3 text-xs md:text-sm">  <!-- fuente más pequeña + espacio reducido -->
+      <li><a href="#home" class="hover:text-zorb-teal transition px-2 py-0.5">Inicio</a></li>
+      <li><a href="#presale" class="hover:text-zorb-teal transition px-2 py-0.5">Presale</a></li>
+      <li><a href="#tokenomics" class="hover:text-zorb-teal transition px-2 py-0.5">Tokenomics</a></li>
+      <li><a href="#roadmap" class="hover:text-zorb-teal transition px-2 py-0.5">Hoja de Ruta</a></li>
+      <li><a href="#chart" class="hover:text-zorb-teal transition px-2 py-0.5">Gráfico en vivo</a></li>
+      <li><a href="#community" class="hover:text-zorb-teal transition px-2 py-0.5">Comunidad</a></li>
+      <li><a href="#architects" class="hover:text-zorb-teal transition px-2 py-0.5">Architects</a></li>
     </ul>
-    <!-- Línea separadora neón sutil -->
+    <!-- Línea separadora neón sutil para separar menú del logo -->
     <div class="menu-separator"></div>
   </nav>
 
-  <!-- Hero – con más espacio arriba gracias al menú delgado -->
-  <header id="home" class="relative min-h-screen flex items-center justify-center pt-16 pb-16 px-6 overflow-hidden">
+  <!-- Hero – ajustado para que el logo quede más arriba y separado -->
+  <header id="home" class="relative min-h-screen flex items-center justify-center pt-10 pb-16 px-6 overflow-hidden">  <!-- pt-10 = muy bajo para subir todo -->
     <div class="absolute inset-0 bg-gradient-to-b from-zorb-purple/20 via-zorb-dark to-zorb-dark"></div>
     <div class="absolute inset-0 opacity-30 pointer-events-none bg-[radial-gradient(circle_at_center,#00f0ff15_0%,transparent_60%)]"></div>
 
     <div class="relative z-10 text-center max-w-5xl">
-      
-      
-      
-      
       <!-- Logo -->
-      
-      
-      
-      
-      
-      
       <img 
         src="https://i.imgur.com/juIBeZj.png"
         alt="ZORBLY Logo – Husky Galáctico Agent Memecoin"
-        class="logo w-40 h-40 md:w-56 md:h-56 mx-auto mb-6 rounded-full border-4 border-zorb-teal/60 object-cover bg-black/30 shadow-2xl"
+        class="logo w-40 h-40 md:w-56 md:h-56 mx-auto mb-8 rounded-full border-4 border-zorb-teal/60 object-cover bg-black/30 shadow-2xl"
         onerror="this.src='https://via.placeholder.com/300/0a0015/00f0ff?text=ZORBLY+LOGO';"
       >
       
