@@ -43,9 +43,12 @@
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(10px);
     }
+    .logo {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
     .logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(0, 240, 255, 0.6);
+      transform: scale(1.08);
+      box-shadow: 0 0 50px rgba(0, 240, 255, 0.7);
     }
   </style>
 </head>
@@ -70,7 +73,12 @@
     <div class="absolute inset-0 opacity-30 pointer-events-none bg-[radial-gradient(circle_at_center,#00f0ff15_0%,transparent_60%)]"></div>
 
     <div class="relative z-10 text-center max-w-5xl">
-      <img src="logo.jpg" alt="ZORBLY logo" class="logo w-48 h-48 md:w-64 md:h-64 mx-auto mb-8 rounded-full border-4 border-zorb-teal/40 object-cover">
+      <!-- Logo actualizado con tu link de Imgur -->
+      <img 
+        src="https://i.imgur.com/4wq9cqB.png" 
+        alt="ZORBLY Logo – Living Agent Memecoin" 
+        class="logo w-48 h-48 md:w-64 md:h-64 mx-auto mb-8 rounded-full border-4 border-zorb-teal/60 object-contain bg-black/30"
+      >
       
       <h1 class="text-6xl md:text-8xl font-extrabold glow-teal mb-4">ZORBLY</h1>
       <p class="text-3xl md:text-5xl glow-magenta mb-6 font-light">$ZORBLY</p>
@@ -185,7 +193,7 @@
     </div>
   </section>
 
-  <!-- Roadmap (más completa) -->
+  <!-- Roadmap (detallado) -->
   <section id="roadmap" class="py-20 px-6 bg-black/40">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-5xl font-bold text-center glow-magenta mb-16">Roadmap</h2>
@@ -270,7 +278,7 @@
     </div>
   </section>
 
-  <!-- Footer con copyright -->
+  <!-- Footer -->
   <footer class="py-12 bg-black border-t border-zorb-teal/30 text-center">
     <p class="text-xl mb-4">ZORBLY – The Living Agent Memecoin on Solana | 100% Organic – No paid promotions</p>
     <p class="text-lg opacity-80 mb-4">Your shills, memes & votes drive the evolution. No team allocations beyond fair share.</p>
