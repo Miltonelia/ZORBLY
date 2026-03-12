@@ -1,420 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZORBLY – $ZORBLY</title>
+  <title>ZORBLY - The Living Agent Memecoin on Solana</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'zorb-teal': '#00f0ff',
+            'zorb-magenta': '#ff00cc',
+            'zorb-purple': '#6b00ff',
+            'zorb-dark': '#0a0015',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at top, #0a001f, #000);
-      color: #fff;
-      scroll-behavior: smooth;
-    }
-
-    nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 0.5rem;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin: 0 1rem;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #00f0ff;
-    }
-
-    .hero {
-      padding-top: 80px;
-      text-align: center;
-      padding: 4rem 1rem;
-      background: linear-gradient(135deg, rgba(10, 0, 31, 0.9), rgba(0, 0, 0, 0.8));
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 60%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('https://i.imgur.com/0h3X1QE.gif') no-repeat center center;
-      background-size: cover;
-      opacity: 0.3;
-      z-index: -1;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #00f0ff;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero .buttons a {
-      display: inline-block;
-      margin: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: #ff00cc;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s ease;
-      font-weight: bold;
-    }
-
-    .hero .buttons a:hover {
-      background: #ff33dd;
-      transform: translateY(-2px);
-    }
-
-    .disclaimer {
-      font-size: 0.9rem;
-      color: #ccc;
-      font-style: italic;
-      margin-top: 1rem;
-    }
-
-    .logo-container {
-      margin-bottom: 2rem;
-    }
-
-    .logo {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      border-radius: 50%;
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(0, 240, 255, 0.6);
-    }
-
-    .token-ticker {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #00f0ff;
-      margin: 0.5rem 0;
-      text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-    }
-
-    .stats-row {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      text-align: center;
-      background: rgba(0, 240, 255, 0.1);
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 240, 255, 0.2);
-      min-width: 120px;
-    }
-
-    .stat-value {
-      display: block;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #00f0ff;
-    }
-
-    .stat-label {
-      display: block;
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 0.25rem;
-    }
-
-    section {
-      padding: 3rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    section h2 {
-      color: #00f0ff;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    section p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .social-links {
-      background: rgba(0, 240, 255, 0.1);
-      padding: 2rem;
-      border-radius: 10px;
-      margin: 2rem 0;
-    }
-
-    .social-links p {
-      margin: 1rem 0;
-      font-size: 1.1rem;
-    }
-
-    .social-links a {
-      color: #00f0ff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #33f0ff;
-    }
-
-    .meme-info {
-      background: rgba(255, 0, 204, 0.2);
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid #ff00cc;
-      margin-top: 2rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #111;
-      color: #aaa;
-      margin-top: 3rem;
-    }
-
-    footer a {
-      color: #00f0ff;
-      text-decoration: none;
-      margin-top: 1rem;
-      display: inline-block;
-    }
-
-    footer a:hover {
-      color: #33f0ff;
-    }
-
-    .new-section {
-      background: rgba(0, 240, 255, 0.08);
-      padding: 2rem;
-      border-radius: 12px;
-      margin: 2rem 0;
-      border: 1px solid rgba(0, 240, 255, 0.2);
-    }
-
-    .chart-container {
-      margin: 2rem 0;
-      text-align: center;
-    }
-
-    .wallet-buttons a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      background: #ff00cc;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .trending-memes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .trending-memes img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-    }
+    .glow-teal { text-shadow: 0 0 20px #00f0ff80, 0 0 40px #00f0ff40; }
+    .glow-magenta { text-shadow: 0 0 20px #ff00cc80, 0 0 40px #ff00cc40; }
+    .neon-border { border: 1px solid #00f0ff40; box-shadow: 0 0 15px #00f0ff30; }
   </style>
 </head>
-<body>
-  <header id="home">
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about-us">About</a></li>
-        <li><a href="#tokenomics">Tokenomics</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#architects">Architects</a></li>
-      </ul>
-    </nav>
+<body class="bg-zorb-dark text-white font-sans overflow-x-hidden">
 
-    <section class="hero">
-      <div class="logo-container">
-        <img src="logo.jpg" alt="ZORBLY logo" class="logo">
-      </div>
-      <h1>ZORBLY</h1>
-      <p class="token-ticker">$ZORBLY</p>
-      <p>The First Living Memecoin that Mutates Forever – Community Evolves the Journey to the Moon!</p>
+  <!-- Header / Hero -->
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-zorb-purple/30 via-zorb-dark to-zorb-dark"></div>
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#00f0ff20_0%,transparent_50%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,#ff00cc20_0%,transparent_50%)]"></div>
+    </div>
 
-      <div class="stats-row">
-        <div class="stat-item">
-          <span class="stat-value">1B</span>
-          <span class="stat-label">Total Supply</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">100%</span>
-          <span class="stat-label">Organic</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">Solana</span>
-          <span class="stat-label">Blockchain</span>
-        </div>
-      </div>
+    <div class="relative z-10 text-center px-6 max-w-5xl">
+      <h1 class="text-6xl md:text-8xl font-extrabold glow-teal mb-6 tracking-tight">
+        ZORBLY
+      </h1>
+      <p class="text-2xl md:text-4xl font-light glow-magenta mb-10">
+        The Living Agent Memecoin on Solana
+      </p>
+      <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+        The first memecoin that evolves forever. Avatar mutates with community votes.  
+        ZORBLY Agent app coming: one prompt = create, launch, post, manage community.
+      </p>
 
-      <div class="buttons">
-        <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank">Join the Community on Telegram</a>
-        <a href="#tokenomics">View Tokenomics</a>
-        <a href="#" target="_blank">Buy $ZORBLY on Pump.fun (coming soon)</a>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="https://tally.so/r/68k2zO" target="_blank" class="px-10 py-5 bg-gradient-to-r from-zorb-teal to-zorb-magenta rounded-full text-2xl font-bold hover:scale-105 transition transform glow-teal">
+          Secure Your Architect Slot + 100k Airdrop
+        </a>
+        <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank" class="px-10 py-5 border-2 border-zorb-teal text-zorb-teal rounded-full text-2xl font-bold hover:bg-zorb-teal/20 transition">
+          Join Telegram
+        </a>
       </div>
-      <p class="disclaimer">We don't pay for promotions – Your creativity is our engine!</p>
-    </section>
+    </div>
   </header>
 
-  <!-- === REGISTER AS ARCHITECT === -->
-  <section id="architects" class="new-section">
-    <h2>Become an Architect – Only 1k Spots Left</h2>
-    <p>Register your wallet to secure your place among the 1k Architects and receive exclusive benefits.</p>
-    <a href="https://tally.so/r/68k2zO" target="_blank" style="display:inline-block; padding:1rem 2rem; background:#ff00cc; color:#fff; border-radius:8px; text-decoration:none; font-weight:bold;">
-      SECURE MY ARCHITECT SLOT NOW →
-    </a>
-  </section>
+  <!-- Preventa Section -->
+  <section class="py-20 px-6 bg-black/50">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-5xl font-bold glow-magenta mb-10">Presale of $ZORBLY</h2>
 
-  <!-- === LIVE CHART (placeholder) === -->
-  <section id="chart" class="new-section">
-    <h2>Live Token Chart</h2>
-    <div class="chart-container">
-      <iframe src="https://birdeye.so/" width="100%" height="500" frameborder="0" style="border-radius:12px;"></iframe>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="neon-border p-10 rounded-2xl bg-black/70">
+          <p class="text-3xl mb-6">You send</p>
+          <p class="text-6xl font-bold text-zorb-teal">1 SOL</p>
+          <p class="text-4xl mt-4 glow-teal">You receive</p>
+          <p class="text-5xl font-bold mt-2">9,512,802 $ZORBLY</p>
+          <p class="text-2xl mt-4">Rate: 1 SOL = 9,512,802 $ZORBLY</p>
+          <p class="text-xl mt-6">Minimum buy: 0.5 SOL</p>
+        </div>
+
+        <div class="neon-border p-10 rounded-2xl bg-black/70">
+          <p class="text-3xl mb-6">Presale Address</p>
+          <div class="bg-black p-4 rounded-xl font-mono text-sm break-all">
+            BDJ7sQerRLUvrDPu4zgHoGAJfmoR7ir9mTMvUk3gK2Bu
+          </div>
+          <p class="text-xl mt-6">Tokens delivered instantly after purchase</p>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <h3 class="text-3xl font-bold mb-6">How to Buy</h3>
+        <ol class="text-left max-w-md mx-auto text-xl space-y-4">
+          <li>1. Copy the presale address above</li>
+          <li>2. Open your Solana wallet (Phantom, Solflare, etc.)</li>
+          <li>3. Send SOL to the presale address</li>
+          <li>4. Receive $ZORBLY tokens instantly in your wallet</li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <!-- === CONNECT WALLET === -->
-  <section class="new-section">
-    <h2>Connect Your Wallet</h2>
-    <div class="wallet-buttons">
-      <a href="https://phantom.app/" target="_blank">Phantom Wallet</a>
-      <a href="https://bitget.com/" target="_blank">Bitget Wallet</a>
-    </div>
-  </section>
+  <!-- Tokenomics -->
+  <section class="py-20 px-6 bg-gradient-to-b from-black to-zorb-dark">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-5xl font-bold glow-teal mb-12">Tokenomics</h2>
+      <p class="text-3xl mb-8">Total Supply: 10,000,000,000 $ZORBLY</p>
 
-  <!-- === TOKENOMICS === -->
-  <section id="tokenomics">
-    <h2>Tokenomics</h2>
-    <div class="token-details">
-      <p><strong>Token Symbol:</strong> $ZORBLY</p>
-      <p><strong>Blockchain:</strong> Solana</p>
-      <p><strong>Total Supply:</strong> 1,000,000,000 $ZORBLY</p>
-      <p><strong>Contract Address:</strong> Coming soon on Pump.fun</p>
-    </div>
-  </section>
-
-  <!-- === ROADMAP === -->
-  <section id="roadmap">
-    <h2>Roadmap</h2>
-    <div class="roadmap-container">
-      <div class="roadmap-phase completed">
-        <div class="phase-number">1</div>
-        <div class="phase-content">
-          <h3>Community Formation</h3>
-          <ul>
-            <li>✅ Website Launch</li>
-            <li>✅ Social Media Setup</li>
-            <li>🔄 Token Contract Deployment</li>
-          </ul>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-8 rounded-xl bg-black/50 neon-border">
+          <p class="text-4xl font-bold text-zorb-magenta">30%</p>
+          <p class="text-xl mt-2">Presale</p>
+          <p class="text-lg opacity-80">3,000,000,000 tokens</p>
         </div>
-      </div>
-      <div class="roadmap-phase active">
-        <div class="phase-number">2</div>
-        <div class="phase-content">
-          <h3>Pump.fun Launch</h3>
-          <ul>
-            <li>🔄 Squad Coordinated Buy</li>
-            <li>📅 Airdrop to Early Architects</li>
-            <li>📅 First Avatar Mutation</li>
-          </ul>
+        <div class="p-8 rounded-xl bg-black/50 neon-border">
+          <p class="text-4xl font-bold text-zorb-teal">25%</p>
+          <p class="text-xl mt-2">Liquidity Pool</p>
+          <p class="text-lg opacity-80">2,500,000,000 tokens</p>
         </div>
-      </div>
-      <div class="roadmap-phase">
-        <div class="phase-number">3</div>
-        <div class="phase-content">
-          <h3>Evolution Phase</h3>
-          <ul>
-            <li>📅 Weekly Community Mutations</li>
-            <li>📅 Raydium Migration</li>
-            <li>📅 Extra Airdrops for Shillers</li>
-          </ul>
+        <div class="p-8 rounded-xl bg-black/50 neon-border">
+          <p class="text-4xl font-bold text-purple-400">15%</p>
+          <p class="text-xl mt-2">Airdrop & Rewards</p>
+          <p class="text-lg opacity-80">1,500,000,000 tokens</p>
         </div>
-      </div>
-      <div class="roadmap-phase">
-        <div class="phase-number">4</div>
-        <div class="phase-content">
-          <h3>Eternal King</h3>
-          <ul>
-            <li>📅 Major Listings</li>
-            <li>📅 Community Governance</li>
-            <li>🚀 Forever Evolving</li>
-          </ul>
+        <div class="p-8 rounded-xl bg-black/50 neon-border">
+          <p class="text-4xl font-bold text-zorb-magenta">10%</p>
+          <p class="text-xl mt-2">Team & Development</p>
+          <p class="text-lg opacity-80">1,000,000,000 tokens</p>
+        </div>
+        <div class="p-8 rounded-xl bg-black/50 neon-border">
+          <p class="text-4xl font-bold text-zorb-teal">10%</p>
+          <p class="text-xl mt-2">Marketing</p>
+          <p class="text-lg opacity-80">1,000,000,000 tokens</p>
+        </div>
+        <div class="p-8 rounded-xl bg-black/50 neon-border">
+          <p class="text-4xl font-bold text-purple-400">10%</p>
+          <p class="text-xl mt-2">Reserve & Ecosystem</p>
+          <p class="text-lg opacity-80">1,000,000,000 tokens</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="community">
-    <h2>Community</h2>
-    <div class="social-links">
-      <p>📢 <a href="https://x.com/ZORBLY" target="_blank">Follow @ZORBLY on X</a></p>
-      <p>💬 <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank">Join Telegram</a></p>
+  <!-- Roadmap -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-5xl font-bold text-center glow-magenta mb-16">Roadmap</h2>
+
+      <div class="space-y-16">
+        <div>
+          <h3 class="text-3xl font-bold mb-6">Q1 2026 - Foundation (Completed)</h3>
+          <ul class="text-xl space-y-3 list-disc pl-6">
+            <li>Website launch</li>
+            <li>Smart contracts development</li>
+            <li>Community building</li>
+            <li>Social media setup</li>
+            <li>Partnership with ZORBLY Agent app</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold mb-6">Q2 2026 - Token Launch (Ongoing)</h3>
+          <ul class="text-xl space-y-3 list-disc pl-6">
+            <li>Presale launch</li>
+            <li>Airdrop campaign</li>
+            <li>DEX listing</li>
+            <li>CoinGecko & CMC listing</li>
+            <li>Marketing campaign</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold mb-6">Q3 2026 - Expansion (Upcoming)</h3>
+          <ul class="text-xl space-y-3 list-disc pl-6">
+            <li>CEX listings</li>
+            <li>ZORBLY Agent app integration</li>
+            <li>AI agent rewards system</li>
+            <li>NFT collection launch</li>
+            <li>Strategic partnerships</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold mb-6">Q4 2026 - Ecosystem Growth (Upcoming)</h3>
+          <ul class="text-xl space-y-3 list-disc pl-6">
+            <li>Governance launch</li>
+            <li>Cross-chain bridge</li>
+            <li>Staking platform</li>
+            <li>Developer SDK</li>
+            <li>Global expansion</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>100% Organic Growth – No paid promotions</p>
-    <a href="#home">Back to Top</a>
+  <!-- Footer -->
+  <footer class="py-12 bg-black border-t border-zorb-teal/30 text-center">
+    <p class="text-xl mb-4">ZORBLY – The Living Agent Memecoin on Solana</p>
+    <p class="opacity-70">© 2026 ZORBLY. All rights reserved.</p>
+    <div class="mt-6 flex justify-center gap-8 text-sm opacity-70">
+      <a href="#" class="hover:text-zorb-teal">Documentation</a>
+      <a href="#" class="hover:text-zorb-teal">Help</a>
+      <a href="#" class="hover:text-zorb-teal">Terms</a>
+      <a href="#" class="hover:text-zorb-teal">Privacy</a>
+    </div>
   </footer>
+
 </body>
 </html>
