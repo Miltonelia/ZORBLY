@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZORBLY - The Living Agent Memecoin on Solana</title>
+  <title>ZORBLY – $ZORBLY | The Living Agent Memecoin on Solana</title>
+  
+  <!-- Tailwind + Custom Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,186 +27,167 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Glows -->
   <style>
     .glow-teal { text-shadow: 0 0 20px #00f0ff80, 0 0 40px #00f0ff40; }
     .glow-magenta { text-shadow: 0 0 20px #ff00cc80, 0 0 40px #ff00cc40; }
     .neon-border { border: 1px solid #00f0ff40; box-shadow: 0 0 15px #00f0ff30; }
+    
+    body {
+      background: radial-gradient(circle at top, #0a001f, #000);
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.6);
+    }
   </style>
 </head>
 <body class="bg-zorb-dark text-white font-sans overflow-x-hidden">
 
-  <!-- Header / Hero -->
-  <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-zorb-purple/30 via-zorb-dark to-zorb-dark"></div>
-    <div class="absolute inset-0 opacity-20 pointer-events-none">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#00f0ff20_0%,transparent_50%)]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,#ff00cc20_0%,transparent_50%)]"></div>
-    </div>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 py-4">
+    <ul class="flex justify-center space-x-8 text-lg">
+      <li><a href="#home" class="hover:text-zorb-teal transition">Home</a></li>
+      <li><a href="#presale" class="hover:text-zorb-teal transition">Presale</a></li>
+      <li><a href="#tokenomics" class="hover:text-zorb-teal transition">Tokenomics</a></li>
+      <li><a href="#roadmap" class="hover:text-zorb-teal transition">Roadmap</a></li>
+      <li><a href="#chart" class="hover:text-zorb-teal transition">Live Chart</a></li>
+      <li><a href="#community" class="hover:text-zorb-teal transition">Community</a></li>
+      <li><a href="#architects" class="hover:text-zorb-teal transition">Architects</a></li>
+    </ul>
+  </nav>
 
-    <div class="relative z-10 text-center px-6 max-w-5xl">
-      <h1 class="text-6xl md:text-8xl font-extrabold glow-teal mb-6 tracking-tight">
-        ZORBLY
-      </h1>
-      <p class="text-2xl md:text-4xl font-light glow-magenta mb-10">
-        The Living Agent Memecoin on Solana
-      </p>
-      <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
-        The first memecoin that evolves forever. Avatar mutates with community votes.  
+  <!-- Hero -->
+  <header id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-zorb-purple/20 via-zorb-dark to-zorb-dark"></div>
+    <div class="absolute inset-0 opacity-30 pointer-events-none bg-[radial-gradient(circle_at_center,#00f0ff15_0%,transparent_60%)]"></div>
+
+    <div class="relative z-10 text-center max-w-5xl">
+      <img src="logo.jpg" alt="ZORBLY logo" class="logo w-48 h-48 md:w-64 md:h-64 mx-auto mb-8 rounded-full border-4 border-zorb-teal/40 object-cover">
+      
+      <h1 class="text-6xl md:text-8xl font-extrabold glow-teal mb-4">ZORBLY</h1>
+      <p class="text-3xl md:text-5xl glow-magenta mb-6 font-light">$ZORBLY</p>
+      <p class="text-xl md:text-2xl mb-10 max-w-4xl mx-auto">
+        The First Living Agent Memecoin on Solana – Evolves Forever with Community Mutations & Votes.  
         ZORBLY Agent app coming: one prompt = create, launch, post, manage community.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="https://tally.so/r/68k2zO" target="_blank" class="px-10 py-5 bg-gradient-to-r from-zorb-teal to-zorb-magenta rounded-full text-2xl font-bold hover:scale-105 transition transform glow-teal">
-          Secure Your Architect Slot + 100k Airdrop
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://tally.so/r/68k2zO" target="_blank" 
+           class="px-10 py-5 bg-gradient-to-r from-zorb-teal to-zorb-magenta rounded-full text-xl md:text-2xl font-bold hover:scale-105 transition glow-teal">
+          Secure Architect Slot + Airdrop
         </a>
-        <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank" class="px-10 py-5 border-2 border-zorb-teal text-zorb-teal rounded-full text-2xl font-bold hover:bg-zorb-teal/20 transition">
+        <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank" 
+           class="px-10 py-5 border-2 border-zorb-teal text-zorb-teal rounded-full text-xl md:text-2xl font-bold hover:bg-zorb-teal/20 transition">
           Join Telegram
         </a>
+        <a href="https://x.com/ZORBLY" target="_blank" 
+           class="px-10 py-5 border-2 border-zorb-magenta text-zorb-magenta rounded-full text-xl md:text-2xl font-bold hover:bg-zorb-magenta/20 transition">
+          Follow on X
+        </a>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="neon-border p-6 rounded-xl bg-black/40 text-center">
+          <p class="text-4xl font-bold text-zorb-teal">1B</p>
+          <p class="text-lg">Total Supply</p>
+        </div>
+        <div class="neon-border p-6 rounded-xl bg-black/40 text-center">
+          <p class="text-4xl font-bold text-zorb-magenta">100%</p>
+          <p class="text-lg">Organic Growth</p>
+        </div>
+        <div class="neon-border p-6 rounded-xl bg-black/40 text-center">
+          <p class="text-4xl font-bold text-purple-400">Solana</p>
+          <p class="text-lg">Blockchain</p>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Presale Section (modificada) -->
-  <section class="py-20 px-6 bg-black/50">
+  <!-- Presale Section -->
+  <section id="presale" class="py-20 px-6 bg-black/60">
     <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-5xl font-bold glow-magenta mb-10">Presale of $ZORBLY</h2>
-
+      <h2 class="text-5xl font-bold glow-magenta mb-12">Presale of $ZORBLY</h2>
       <div class="grid md:grid-cols-2 gap-12">
         <div class="neon-border p-10 rounded-2xl bg-black/70">
-          <p class="text-3xl mb-6">You send</p>
+          <p class="text-4xl mb-6">Send</p>
           <p class="text-6xl font-bold text-zorb-teal">SOL</p>
-          <p class="text-4xl mt-8 glow-teal">You receive</p>
-          <p class="text-4xl font-bold mt-4">$ZORBLY tokens</p>
-          <p class="text-2xl mt-6">Tokens delivered instantly after purchase</p>
-          <p class="text-xl mt-4">Minimum buy: 0.5 SOL</p>
+          <p class="text-4xl mt-8 glow-teal">Receive</p>
+          <p class="text-4xl font-bold mt-4">$ZORBLY Tokens</p>
+          <p class="text-xl mt-6">Instant delivery after send • Min: 0.5 SOL</p>
         </div>
-
         <div class="neon-border p-10 rounded-2xl bg-black/70">
-          <p class="text-3xl mb-6">Presale Address</p>
-          <div class="bg-black p-4 rounded-xl font-mono text-sm md:text-base break-all">
+          <p class="text-4xl mb-6">Presale Address</p>
+          <div class="bg-black p-5 rounded-xl font-mono text-base md:text-lg break-all">
             CtyKTxtG2bTZLVE6YcCD8VmUBsdYsWym1kQXBUfV3ceS
           </div>
-          <p class="text-xl mt-8">Copy → Send SOL from Phantom/Solflare/etc. → Tokens arrive automatically</p>
+          <p class="text-xl mt-8">Use Phantom / Solflare → Send SOL → Tokens arrive automatically</p>
         </div>
       </div>
-
-      <div class="mt-12">
-        <h3 class="text-3xl font-bold mb-6">How to Buy</h3>
-        <ol class="text-left max-w-md mx-auto text-xl space-y-4 list-decimal pl-8">
+      <div class="mt-12 max-w-2xl mx-auto text-left text-xl">
+        <h3 class="text-3xl font-bold mb-6 glow-teal">How to Buy</h3>
+        <ol class="list-decimal pl-8 space-y-3">
           <li>Copy the presale address above</li>
-          <li>Open your Solana wallet (Phantom, Solflare, etc.)</li>
-          <li>Send SOL to the presale address</li>
-          <li>Receive $ZORBLY tokens instantly in your wallet</li>
+          <li>Open your Solana wallet</li>
+          <li>Send SOL to that address</li>
+          <li>Tokens are delivered instantly</li>
         </ol>
       </div>
     </div>
   </section>
 
-  <!-- Tokenomics (actualizado a 1B total supply) -->
-  <section class="py-20 px-6 bg-gradient-to-b from-black to-zorb-dark">
+  <!-- Tokenomics -->
+  <section id="tokenomics" class="py-20 px-6 bg-gradient-to-b from-black to-zorb-dark">
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-5xl font-bold glow-teal mb-12">Tokenomics</h2>
-      <p class="text-3xl mb-8">Total Supply: 1,000,000,000 $ZORBLY</p>
-
+      <p class="text-3xl mb-10">Total Supply: 1,000,000,000 $ZORBLY</p>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="p-8 rounded-xl bg-black/50 neon-border">
-          <p class="text-4xl font-bold text-zorb-magenta">30%</p>
-          <p class="text-xl mt-2">Presale</p>
-          <p class="text-lg opacity-80">300,000,000 tokens</p>
+          <p class="text-5xl font-bold text-zorb-magenta">30%</p>
+          <p class="text-2xl mt-3">Presale</p>
+          <p class="opacity-80">300M tokens</p>
         </div>
         <div class="p-8 rounded-xl bg-black/50 neon-border">
-          <p class="text-4xl font-bold text-zorb-teal">25%</p>
-          <p class="text-xl mt-2">Liquidity Pool</p>
-          <p class="text-lg opacity-80">250,000,000 tokens</p>
+          <p class="text-5xl font-bold text-zorb-teal">25%</p>
+          <p class="text-2xl mt-3">Liquidity Pool</p>
+          <p class="opacity-80">250M tokens</p>
         </div>
         <div class="p-8 rounded-xl bg-black/50 neon-border">
-          <p class="text-4xl font-bold text-purple-400">15%</p>
-          <p class="text-xl mt-2">Airdrop & Rewards</p>
-          <p class="text-lg opacity-80">150,000,000 tokens</p>
+          <p class="text-5xl font-bold text-purple-400">15%</p>
+          <p class="text-2xl mt-3">Airdrop & Rewards</p>
+          <p class="opacity-80">150M tokens</p>
         </div>
         <div class="p-8 rounded-xl bg-black/50 neon-border">
-          <p class="text-4xl font-bold text-zorb-magenta">10%</p>
-          <p class="text-xl mt-2">Team & Development</p>
-          <p class="text-lg opacity-80">100,000,000 tokens</p>
+          <p class="text-5xl font-bold text-zorb-magenta">10%</p>
+          <p class="text-2xl mt-3">Team & Dev</p>
+          <p class="opacity-80">100M tokens</p>
         </div>
         <div class="p-8 rounded-xl bg-black/50 neon-border">
-          <p class="text-4xl font-bold text-zorb-teal">10%</p>
-          <p class="text-xl mt-2">Marketing</p>
-          <p class="text-lg opacity-80">100,000,000 tokens</p>
+          <p class="text-5xl font-bold text-zorb-teal">10%</p>
+          <p class="text-2xl mt-3">Marketing</p>
+          <p class="opacity-80">100M tokens</p>
         </div>
         <div class="p-8 rounded-xl bg-black/50 neon-border">
-          <p class="text-4xl font-bold text-purple-400">10%</p>
-          <p class="text-xl mt-2">Reserve & Ecosystem</p>
-          <p class="text-lg opacity-80">100,000,000 tokens</p>
+          <p class="text-5xl font-bold text-purple-400">10%</p>
+          <p class="text-2xl mt-3">Reserve & Ecosystem</p>
+          <p class="opacity-80">100M tokens</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Roadmap -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-5xl font-bold text-center glow-magenta mb-16">Roadmap</h2>
-
-      <div class="space-y-16">
-        <div>
-          <h3 class="text-3xl font-bold mb-6">Q1 2026 - Foundation (Completed)</h3>
-          <ul class="text-xl space-y-3 list-disc pl-6">
-            <li>Website launch</li>
-            <li>Smart contracts development</li>
-            <li>Community building</li>
-            <li>Social media setup</li>
-            <li>Partnership with ZORBLY Agent app</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-3xl font-bold mb-6">Q2 2026 - Token Launch (Ongoing)</h3>
-          <ul class="text-xl space-y-3 list-disc pl-6">
-            <li>Presale launch</li>
-            <li>Airdrop campaign</li>
-            <li>DEX listing</li>
-            <li>CoinGecko & CMC listing</li>
-            <li>Marketing campaign</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-3xl font-bold mb-6">Q3 2026 - Expansion (Upcoming)</h3>
-          <ul class="text-xl space-y-3 list-disc pl-6">
-            <li>CEX listings</li>
-            <li>ZORBLY Agent app integration</li>
-            <li>AI agent rewards system</li>
-            <li>NFT collection launch</li>
-            <li>Strategic partnerships</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-3xl font-bold mb-6">Q4 2026 - Ecosystem Growth (Upcoming)</h3>
-          <ul class="text-xl space-y-3 list-disc pl-6">
-            <li>Governance launch</li>
-            <li>Cross-chain bridge</li>
-            <li>Staking platform</li>
-            <li>Developer SDK</li>
-            <li>Global expansion</li>
-          </ul>
-        </div>
+  <!-- Live Chart (del primer código) -->
+  <section id="chart" class="py-20 px-6 bg-black/40">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-5xl font-bold text-center glow-teal mb-12">Live Token Chart & Data</h2>
+      <div class="neon-border rounded-2xl overflow-hidden bg-black/70">
+        <iframe src="https://birdeye.so/" width="100%" height="700" frameborder="0" style="border-radius:12px;"></iframe>
       </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-12 bg-black border-t border-zorb-teal/30 text-center">
-    <p class="text-xl mb-4">ZORBLY – The Living Agent Memecoin on Solana</p>
-    <p class="opacity-70">© 2026 ZORBLY. All rights reserved.</p>
-    <div class="mt-6 flex justify-center gap-8 text-sm opacity-70">
-      <a href="#" class="hover:text-zorb-teal">Documentation</a>
-      <a href="#" class="hover:text-zorb-teal">Help</a>
-      <a href="#" class="hover:text-zorb-teal">Terms</a>
-      <a href="#" class="hover:text-zorb-teal">Privacy</a>
-    </div>
-  </footer>
-
-</body>
-</html>
+      <p class="text-center mt-6 text-lg opacity-80">Search $
