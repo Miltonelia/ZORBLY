@@ -55,26 +55,26 @@
 </head>
 <body class="bg-zorb-dark text-white font-sans overflow-x-hidden">
 
-  <!-- Menú superior – delgado y minimalista -->
-  <nav class="fixed top-0 w-full z-50 py-1.5">
-    <ul class="flex justify-center space-x-6 text-sm md:text-base">
-      <li><a href="#home" class="hover:text-zorb-teal transition px-3 py-1">Inicio</a></li>
-      <li><a href="#presale" class="hover:text-zorb-teal transition px-3 py-1">Presale</a></li>
-      <li><a href="#tokenomics" class="hover:text-zorb-teal transition px-3 py-1">Tokenomics</a></li>
-      <li><a href="#roadmap" class="hover:text-zorb-teal transition px-3 py-1">Hoja de Ruta</a></li>
-      <li><a href="#chart" class="hover:text-zorb-teal transition px-3 py-1">Gráfico en vivo</a></li>
-      <li><a href="#community" class="hover:text-zorb-teal transition px-3 py-1">Comunidad</a></li>
-      <li><a href="#architects" class="hover:text-zorb-teal transition px-3 py-1">Architects</a></li>
+  <!-- Menú superior – DELGADO Y MINIMALISTA -->
+  <nav class="fixed top-0 w-full z-50 py-1">  <!-- py-1 = solo 4px arriba/abajo -->
+    <ul class="flex justify-center space-x-4 text-sm">  <!-- espacio más pequeño + fuente chica -->
+      <li><a href="#home" class="hover:text-zorb-teal transition px-2 py-1">Inicio</a></li>
+      <li><a href="#presale" class="hover:text-zorb-teal transition px-2 py-1">Presale</a></li>
+      <li><a href="#tokenomics" class="hover:text-zorb-teal transition px-2 py-1">Tokenomics</a></li>
+      <li><a href="#roadmap" class="hover:text-zorb-teal transition px-2 py-1">Hoja de Ruta</a></li>
+      <li><a href="#chart" class="hover:text-zorb-teal transition px-2 py-1">Gráfico en vivo</a></li>
+      <li><a href="#community" class="hover:text-zorb-teal transition px-2 py-1">Comunidad</a></li>
+      <li><a href="#architects" class="hover:text-zorb-teal transition px-2 py-1">Architects</a></li>
     </ul>
   </nav>
 
-  <!-- Hero -->
-  <header id="home" class="relative min-h-screen flex items-center justify-center pt-16 pb-16 px-6 overflow-hidden">
+  <!-- Hero – ajustado para que el logo quede más arriba -->
+  <header id="home" class="relative min-h-screen flex items-center justify-center pt-12 pb-16 px-6 overflow-hidden">  <!-- pt-24 → pt-12 -->
     <div class="absolute inset-0 bg-gradient-to-b from-zorb-purple/20 via-zorb-dark to-zorb-dark"></div>
     <div class="absolute inset-0 opacity-30 pointer-events-none bg-[radial-gradient(circle_at_center,#00f0ff15_0%,transparent_60%)]"></div>
 
     <div class="relative z-10 text-center max-w-5xl">
-      <!-- Logo con link de tu galería Imgur -->
+      <!-- Logo con tu link de Imgur -->
       <img 
         src="https://i.imgur.com/juIBeZj.png"
         alt="ZORBLY Logo – Husky Galáctico Agent Memecoin"
@@ -92,13 +92,16 @@
       <p class="text-lg mb-8 italic opacity-80">¡100% orgánico! – Tu creatividad y shills son nuestro motor. Sin promociones pagadas.</p>
 
       <div class="flex flex-wrap justify-center gap-6">
-        <a href="https://tally.so/r/68k2zO" target="_blank" class="px-10 py-5 bg-gradient-to-r from-zorb-teal to-zorb-magenta rounded-full text-xl md:text-2xl font-bold hover:scale-105 transition glow-teal">
+        <a href="https://tally.so/r/68k2zO" target="_blank" 
+           class="px-10 py-5 bg-gradient-to-r from-zorb-teal to-zorb-magenta rounded-full text-xl md:text-2xl font-bold hover:scale-105 transition glow-teal">
           Asegura tu Slot de Architect + Airdrop
         </a>
-        <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank" class="px-10 py-5 border-2 border-zorb-teal text-zorb-teal rounded-full text-xl md:text-2xl font-bold hover:bg-zorb-teal/20 transition">
+        <a href="https://t.me/+jv8j_1dEo3wyZTNh" target="_blank" 
+           class="px-10 py-5 border-2 border-zorb-teal text-zorb-teal rounded-full text-xl md:text-2xl font-bold hover:bg-zorb-teal/20 transition">
           Únete a Telegram
         </a>
-        <a href="https://x.com/ZORBLY" target="_blank" class="px-10 py-5 border-2 border-zorb-magenta text-zorb-magenta rounded-full text-xl md:text-2xl font-bold hover:bg-zorb-magenta/20 transition">
+        <a href="https://x.com/ZORBLY" target="_blank" 
+           class="px-10 py-5 border-2 border-zorb-magenta text-zorb-magenta rounded-full text-xl md:text-2xl font-bold hover:bg-zorb-magenta/20 transition">
           Síguenos en X
         </a>
       </div>
@@ -289,4 +292,4 @@
   </footer>
 
 </body>
-  </html>
+</html>
