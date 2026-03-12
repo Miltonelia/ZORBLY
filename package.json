@@ -1,0 +1,21 @@
+{
+  "name": "zorbly-agent",
+  "version": "1.0.0",
+  "description": "The first decentralized multi-agent AI platform for creators on Solana",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve",
+    "start": "npx serve"
+  },
+  "keywords": [
+    "solana",
+    "ai",
+    "agents",
+    "crypto",
+    "memecoin",
+    "web3",
+    "telegram"
+  ],
+  "author": "ZORBLY Team",
+  "license": "MIT"
+}
